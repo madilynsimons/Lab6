@@ -2,6 +2,11 @@
 #ifndef Array
 	#define Array
 
+#define INIT_SIZE 4
+#define EPSILON 0.01
+
+#define FILE_ERROR 1
+
 typedef struct{
     double *vector;
     int count;

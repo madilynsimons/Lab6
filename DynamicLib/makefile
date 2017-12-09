@@ -1,7 +1,7 @@
 # Variable for compiler
 CC=gcc
 # Variable for compiler options
-CFLAGS=-c -Wall -I.
+CFLAGS=-c -fPIC -I.
 # Variable for cleanup command
 # to clean .o file
 CLEANUP=rm -rf *o
@@ -9,12 +9,13 @@ CLEANUP=rm -rf *o
 # Entry point and exit point for call to "make".
 # all is the target and compile is dependency.
 # makeRanLib will be completed before all.
-all: makeRanLib
+all: makeLink
 
 # Execute this after makeLib
 # Creates an index inside the library
-makeRanLib: makeLib
-	ranlib libArray.a
+makeLink: makeLib
+	ln -sf libArray.so.0.0 libArray.so.0
+	ln -sf libArray.so.0 libArray.so
 
 # Execute this after all Array object files are created
 # Create a library file libArray.a
@@ -116,6 +117,10 @@ zeros.o: zeros.c
 # using the static library libArray.a
 compile:
 	gcc -o test.exe main.c -L. -lArray
+
+# Run the executable with the library path
+run:
+	LD_LIBRARY_PATH="." ./test.exe
 
 # Remove object
 clean:

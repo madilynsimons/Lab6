@@ -4,11 +4,6 @@
 #include <math.h>
 #include "Array.h"
 
-#define INIT_SIZE 4
-#define EPSILON 0.01
-
-#define FILE_ERROR 1
-
 /*
 
     Single vector functions
