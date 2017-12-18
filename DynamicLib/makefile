@@ -14,7 +14,7 @@ all: makeLink
 # Execute this after makeLib
 # Creates an index inside the library
 makeLink: makeLib
-	ln -sf libArray.so.0.0 libArray.so.0
+#	ln -sf libArray.so.0.0 libArray.so.0
 	ln -sf libArray.so.0 libArray.so
 
 # Execute this after all Array object files are created
